@@ -204,3 +204,9 @@ malaria-trends-rwanda/
 **Instructor:** eric.maniraguha@auca.ac.rw
 
 ---
+
+### FIND THE FILES IN THE LINK BELOW:
+
+
+  [!https://drive.google.com/drive/folders/1ix9e_-RlXRF7u_-7PjfNQw0mPrVy6dhy?usp=drive_link] 
+
