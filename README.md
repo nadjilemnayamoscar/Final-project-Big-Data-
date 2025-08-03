@@ -118,7 +118,7 @@ Tasks:
 ```
     # screenshot of incidence & mortality
 
-    <img width="1736" height="636" alt="final 9s" src="https://github.com/user-attachments/assets/00a2d19e-0b87-439e-a7c0-064447a2b1bd" />
+<img width="1736" height="636" alt="final 9s" src="https://github.com/user-attachments/assets/00a2d19e-0b87-439e-a7c0-064447a2b1bd" />
 
 
 ---
