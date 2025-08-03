@@ -5,7 +5,8 @@
 # 🦟 Malaria Trends in Rwanda – Big Data Analytics Capstone
 
 Capstone project for **INSY 8413 – Introduction to Big Data Analytics**  
-👤 **Nadjilem Nayam Oscar**  
+👤 # Name: **Nadjilem Nayam Oscar**  
+👤 # ID: **26518**
 📅 Academic Year: 2024–2025, Semester III  
 🎓 Adventist University of Central Africa (AUCA)  
 👨‍🏫 Instructor: Eric Maniraguha
