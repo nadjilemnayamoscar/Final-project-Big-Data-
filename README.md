@@ -66,14 +66,60 @@ Tasks:
 
 - Converted numeric fields (`Year`, `NumericValue`, `LowBound`, `HighBound`)
   ```pthon
-  # Convert columns to proper numeric types
-df['Year'] = pd.to_numeric(df['Year'], errors='coerce')
-df['NumericValue'] = pd.to_numeric(df['NumericValue'], errors='coerce')
-df['LowBound'] = pd.to_numeric(df['LowBound'], error='cos='coerce')
-df['HighBound'] = pd.to_numeric(df['HighBound'], errorserce')
+      # Convert columns to proper numeric types
+    df['Year'] = pd.to_numeric(df['Year'], errors='coerce')
+    df['NumericValue'] = pd.to_numeric(df['NumericValue'], errors='coerce')
+    df['LowBound'] = pd.to_numeric(df['LowBound'], error='cos='coerce')
+    df['HighBound'] = pd.to_numeric(df['HighBound'], errorserce')
   ```
 - Dropped or handled missing values
+```python
+
+    # ✅ Drop rows where 'Year' or 'NumericValue' is missing (essential fields)
+    df = df.dropna(subset=['Year', 'NumericValue'])
+    
+    # (Optional) Fill missing bounds if you want to keep all rows
+    df['LowBound'] = df['LowBound'].fillna(0)
+    df['HighBound'] = df['HighBound'].fillna(0)
+    
+    # Reset index
+    df = df.reset_index(drop=True)
+    
+    # Preview the cleaned dataframe
+    df.head()
+
+```
 - Filtered specific indicators (incidence & mortality)
+
+```python
+
+    import matplotlib.pyplot as plt
+    
+    # Filter for incidence and mortality indicators from the cleaned DataFrame
+    incidence_df = df[df['Indicator'].str.contains('incidence', case=False, na=False)].copy()
+    deaths_df = df[df['Indicator'].str.contains('mortality', case=False, na=False)].copy()
+    
+    # Sort by year
+    incidence_df = incidence_df.sort_values('Year')
+    deaths_df = deaths_df.sort_values('Year')
+    
+    # Plot both indicators
+    plt.figure(figsize=(10, 5))
+    plt.plot(incidence_df['Year'], incidence_df['NumericValue'], marker='o', label='Incidence (per 1000)', color='green')
+    plt.plot(deaths_df['Year'], deaths_df['NumericValue'], marker='x', label='Mortality (per 100,000)', color='red')
+    plt.title('Malaria Incidence and Mortality Trends in Rwanda')
+    plt.xlabel('Year')
+    plt.ylabel('Rate')
+    plt.legend()
+    plt.grid(True)
+    plt.tight_layout()
+    plt.show()
+
+```
+    # screenshot of incidence & mortality
+
+    <img width="1736" height="636" alt="final 9s" src="https://github.com/user-attachments/assets/00a2d19e-0b87-439e-a7c0-064447a2b1bd" />
+
 
 ---
 
@@ -96,6 +142,11 @@ Built an interactive dashboard in **Power BI Desktop** using `cleaned_malaria_da
 - **Slicers:** Filter by year and indicator
 - **KPI Cards:** Summary statistics
 - **Tooltips:** Show `LowBound` and `HighBound`
+
+ ## Dashboard screenshot 
+
+ <img width="1162" height="711" alt="dashboard" src="https://github.com/user-attachments/assets/735c68a1-ffcc-4014-a669-99dc70000ef2" />
+
 
 ---
 
